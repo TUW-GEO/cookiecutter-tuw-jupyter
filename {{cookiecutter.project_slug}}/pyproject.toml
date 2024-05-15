@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "pangeo-workflow-examples"
+name = "{{cookiecutter.project_slug}}"
 package-mode = false
 
 [tool.poetry.dependencies]
