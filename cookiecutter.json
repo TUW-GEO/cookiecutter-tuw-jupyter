@@ -1,0 +1,8 @@
+{
+    "author": "TU Wien GEO MRS group",
+    "author_email": "remote.sensing@geo.tuwien.ac.at",
+    "project_name": "my-tuw-jupyter",
+    "project_description": "my jupyter project description",
+    "url": "",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}"
+  }
