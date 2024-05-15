@@ -21,15 +21,18 @@ clean:
 
 develop:
 	poetry install
-	$(POETRY_ACTIVATE) mylecture
+	$(POETRY_ACTIVATE) {{cookiecutter.project_slug}}
 	@echo -e "poetry development environment is ready."
+
+publish:
+	poetry lock
 
 kernel:
 	poetry install --only main
-	$(POETRY_ACTIVATE) mylecture
+	$(POETRY_ACTIVATE) {{cookiecutter.project_slug}}
 	poetry run cp -f /tmp/eodag.yml ${HOME}/.config/eodag/eodag.yml
 	poetry run cp -f /tmp/providers.yml $(EODAG_PATH)/lib/python3.10/site-packages/eodag/resources/providers.yml
-	python -m ipykernel install --user --name mylecture --display-name "mylecture "
+	python -m ipykernel install --user --name {{cookiecutter.project_slug}}
 	@echo -e "poetry jupyter kernel is ready."
 
 jupyter: kernel develop
