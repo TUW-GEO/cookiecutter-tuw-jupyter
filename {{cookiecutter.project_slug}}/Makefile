@@ -27,8 +27,8 @@ develop:
 	mamba install -y -c conda-forge nbgitpuller jupyterlab eodag ipykernel 
 
 publish:
-	$(CONDA_ACTIVATE) {{cookiecutter.project_slug}} 
-	mamba env export | grep -v "^prefix: " > environment.yml
+	$(CONDA_ACTIVATE) pangeo-workflow-examples
+	mamba env export  --from-history | grep -ve "^prefix:" -ve "jupyterlab" -ve "nbgitpuller" > environment.yml
 
 kernel:
 	mamba env create -n {{cookiecutter.project_slug}}--file {{cookiecutter.project_slug}} .yml
