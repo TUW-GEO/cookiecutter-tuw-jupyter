@@ -1,6 +1,6 @@
 name: Binder
 on: [push]
-
+{% raw %}
 jobs:
   Create-MyBinderOrg-Cache:
     runs-on: ubuntu-latest
@@ -10,3 +10,4 @@ jobs:
       with:
         NO_PUSH: true
         MYBINDERORG_TAG: ${{ github.event.ref }} # This builds the container on mybinder.org with the branch that was pushed on.
+{% endraw %}
