@@ -28,7 +28,7 @@ develop:
 
 publish:
 	$(CONDA_ACTIVATE) {{cookiecutter.project_slug}} 
-	mamba env export | grep -v "^prefix: " > {{cookiecutter.project_slug}} .yml
+	mamba env export | grep -v "^prefix: " > environment.yml
 
 kernel:
 	mamba env create -n {{cookiecutter.project_slug}}--file {{cookiecutter.project_slug}} .yml
