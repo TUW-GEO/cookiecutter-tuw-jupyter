@@ -31,7 +31,7 @@ publish:
 	mamba env export  --from-history | grep -ve "^prefix:" -ve "jupyterlab" -ve "nbgitpuller" > environment.yml
 
 kernel:
-	mamba env create -n {{cookiecutter.project_slug}}--file {{cookiecutter.project_slug}} .yml
+	mamba env create -n {{cookiecutter.project_slug}} --file environment.yml
 	$(CONDA_ACTIVATE) {{cookiecutter.project_slug}} 
 	cp -f /tmp/eodag.yml ${HOME}/.config/eodag/eodag.yml
 	cp -f /tmp/providers.yml $(EODAG_PATH)/eodag/resources/providers.yml
