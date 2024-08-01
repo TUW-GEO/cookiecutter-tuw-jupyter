@@ -7,7 +7,7 @@ TODO: Add you lecture description.
 To re-create the environment as a Jupyter kernel for execution of the notebooks, do the following:
 
 - Open a Terminal from the same level as this Markdown README file.
-- An type the following into the terminal.
+- Type the following into the terminal.
 
 ```
 make kernel
