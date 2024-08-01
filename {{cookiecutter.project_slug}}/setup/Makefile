@@ -2,8 +2,8 @@
 SHELL = /bin/bash
 .PHONY: help
 
-GIT_ACCOUNT = {{author}}
-REPO_NAME = {{project_slug}}
+GIT_ACCOUNT = {{cookiecutter.author}}
+REPO_NAME = {{cookiecutter.project_slug}}
 GIT_BRANCH = main
 GIT_REPO = https://github.com/$(GIT_ACCOUNT)/$(REPO_NAME).git
 ROOT = ~/$(REPO_NAME)
