@@ -26,7 +26,7 @@ my_project
 ```
 
 ## Usage
-1. Create an empty repository on Guithub where the new Jupyter Notebook project should be. Github account name of person or group and the prject name will be needed in step 4.
+1. Create an empty repository on Guithub where the new Jupyter Notebook project should be. Github account name of the person or group and the project name will be needed in step 4.
 
 2. Install [`cookiecutter`](https://cookiecutter.readthedocs.io/en/stable/index.html)
    if you haven't installed it yet:
@@ -35,7 +35,7 @@ my_project
    pip install cookiecutter
    ```
 
-3. Use `cookiecutter-tuw-jupyter` to generate the Jupyter Notebook template. Therefor run
+3. Use `cookiecutter-tuw-jupyter` to generate the Jupyter Notebook template. Therefore run
 
    ```
    cookiecutter git@github.com:executablebooks/cookiecutter-jupyter-book.git
@@ -45,11 +45,10 @@ my_project
    - Github Name: Github account name of person or group (defaults to [TUW-GEO](https://github.com/TUW-GEO))
    - Project Name: Name of project and the accompanying GitHub repository
    - Project Slug: The same as the name but without capital letters and spaces
-   The names are used in the `makefile` form the `.setup` folder. This is important for sharing the notebook for easy setup.
+   
+   These names are used in the `makefile` form the `.setup` folder. This is important when sharing the notebook for easy setup.
 
-5. Now commit the changes to the notebooks. 
+5. Now you can work on the Project. A example Jupyter notebook called `01_eo-discover-eodag.ipynb`has been created.
 
 
-
-
-## Explanation of the makefile,... the whole workflow
+## Project Workflow - explaining the files,...
