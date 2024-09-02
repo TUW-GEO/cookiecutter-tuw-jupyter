@@ -1,11 +1,16 @@
 
+
+
+
 TODO: Add you lecture description. 
+
+
 
 # Generate Jupyter Conda environment and Jupyter Kernel from `yml`
 
 To re-create the environment as a Jupyter kernel for execution of the notebooks, do the following:
 
-- Open a Terminal from the same level as this Markdown README file.
+- Open a Terminal from the same level as this Markdown README file and the Makefile file.
 - Type the following into the terminal.
 
 ```

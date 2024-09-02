@@ -1,6 +1,6 @@
 # Cookiecutter TU Wien Jupyter Template
 
-This template is meant for creating Jupyter notebooks for lectures and labs from scratch.
+This template is meant for creating Jupyter notebooks for lectures and labs from scratch. It streamlines the setup process, making it easier to start new projects and maintain consistency across notebooks.
 
 ## Template
 
@@ -31,11 +31,11 @@ This YAML file contains a GitHub Action for launching the project on mybinder.or
 
 ### .setup/Makefile
 
-The Makefile in this directory provides commands for setting up the project's environment. This might include tasks such as installing dependencies, setting up virtual environments, or other setup procedures necessary to get the project running. When the project is published on GitHub this file can be used to load the repository and all the dependencies.
+The Makefile from the `.setup` folder provides commands for setting up the project or deleting the notebooks and all dependencies again. With the command `make notebooks`the file handles the task of cloning the repository from GitHub, installing dependencies, and setting up virtual environments and kernels. The command `make delete`removes notebooks, environments and kernels again.
 
 ### .setup/README.md
 
-This README file contains instructions on how to set up the development environment for the project.
+This README file contains instructions on how to use the makefile to share the project both for TU Wien lecturers and for TU Wien students.
 
 ### .gitignore
 
@@ -47,11 +47,11 @@ This is an example Jupyter notebook provided as a template or starting point.
 
 ### 01_eo-discover-eodag.yml
 
-This YAML file likely contains configuration settings specific to the Jupyter notebook `01_eo-discover-eodag.ipynb`. Here dependencies, environment variables, or other settings required to run the notebook successfully should be defined.
+This YAML file contains configuration settings specific to the Jupyter notebook `01_eo-discover-eodag.ipynb`. Here dependencies, environment variables, or other settings required to run the notebook successfully should be defined.
 
 ### Makefile
 
-The root-level Makefile contains commands that apply to the entire project. This could include tasks such as building documentation, running tests, or packaging the project. It serves as a convenient way to manage project-wide tasks from the command line.
+The root-level Makefile is designed to manage the setup and maintenance of Conda environments and Jupyter kernels for the entire project. It includes commands to create and remove Conda environments, configure Jupyter kernels, clean up unnecessary files, and more.
 
 ### README.md
 
@@ -69,7 +69,7 @@ The main README file provides an overview of the project, including its purpose,
 2. Use `cookiecutter-tuw-jupyter` to generate the Jupyter Notebook template. Therefore run
 
    ```
-   cookiecutter git@github.com:executablebooks/cookiecutter-jupyter-book.git
+   cookiecutter https://github.com/TUW-GEO/cookiecutter-tuw-jupyter
    ```
 
 3. Now fill out the requested information (default templating values are shown in square brackets `[]` and will be used if no other information is entered):
@@ -79,6 +79,8 @@ The main README file provides an overview of the project, including its purpose,
    
    These names are used in the `makefile` form the `.setup` folder. This is important when sharing the notebook for easy setup.
 
-4. Now you can work on the Project. A example Jupyter notebook called `01_eo-discover-eodag.ipynb`has been created. Dont forget to push your changes to GitHub. (check that the names are the same)
+4. Now you can work on the Project. A example Jupyter notebook called `01_eo-discover-eodag.ipynb`has been created. Dont forget to push your changes to GitHub (Use the same names as in 3). 
 
-5. To share your Project provide the `Makefile` together with the `README` file from the `.setup`folder. Make sure that the GitHub repository is public and that it has a branch called `main`.
+5. Make sure that the GitHub repository is public and that it has a branch called `main`. This can be changed in GitHub in your project under the `Settings` on the top right.
+
+6. To share your Project provide the `Makefile` together with the `README` file from the `.setup`folder.
