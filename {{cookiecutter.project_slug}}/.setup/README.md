@@ -8,7 +8,7 @@ This Makefile automatizes the process of cloning your GitHub repository to the s
 
 To clone the lecturer's notebooks to your JupyterLab Home directory, do the following. 
 
-- Open a Terminal from the same level as this Markdown README file.
+- Open a Terminal from the same level as the Makefile file.
 - Type the following into the terminal.
 
 ```
@@ -19,7 +19,7 @@ Select the kernel with the equivalent name as the `.ipynb` notebook to execute t
 
 To remove the notebooks as well as the Jupyter kernels, do the following.
 
-- Open a Terminal from the same level as this Markdown README file.
+- Open a Terminal from the same level as this Makefile file.
 - Type the following into the terminal.
 
 ```

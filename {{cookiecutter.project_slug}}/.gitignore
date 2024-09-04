@@ -53,3 +53,10 @@ venv
 
 # make file markers
 .install*
+
+# generated files
+*.html
+*_files/
+/.quarto/
+_site/
+/README_files/libs/
