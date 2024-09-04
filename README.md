@@ -81,6 +81,10 @@ The main README file provides an overview of the project, including its purpose,
 
 4. Now you can work on the Project. A example Jupyter notebook called `01_eo-discover-eodag.ipynb`has been created. Dont forget to push your changes to GitHub (Use the same names as in 3). 
 
-5. Make sure that the GitHub repository is public and that it has a branch called `main`. This can be changed in GitHub in your project under the `Settings` on the top right.
+5. Make sure that the GitHub repository is public. When using the Makefile to get the notebooks the `main` branch is cloned by default. In the `.setup/Makefile` you can specify a different branch. Therefore you need to change
+    ```
+    GIT_BRANCH = main
+    ````
+    in line 7 to the desired branch.
 
-6. To share your Project provide the `Makefile` together with the `README` file from the `.setup`folder.
+6. To share your Project on the TU Wien JupyterHub provide the `Makefile` together with the `README` file from the `.setup`folder.
