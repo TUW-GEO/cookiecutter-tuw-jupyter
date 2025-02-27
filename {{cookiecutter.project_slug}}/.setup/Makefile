@@ -6,7 +6,7 @@ GIT_ACCOUNT = {{cookiecutter.github_name}}
 REPO_NAME = {{cookiecutter.project_slug}}
 GIT_BRANCH = main
 GIT_REPO = https://github.com/$(GIT_ACCOUNT)/$(REPO_NAME).git
-ROOT = ~/$(REPO_NAME)
+ROOT = ${HOME}/$(REPO_NAME)
 
 
 help:
