@@ -3,9 +3,10 @@ SHELL = /bin/bash
 .PHONY: help clean environment kernel teardown
 
 YML = {{cookiecutter.project_slug}}.yml
-CONDA_ACTIVATE = source $$(conda info --base)/etc/profile.d/conda.sh ; conda activate ; conda activate {{cookiecutter.project_slug}}
 PREFIX = $(CURDIR)/.conda_envs
 CONDA_ENV_DIR := $(PREFIX)/{{cookiecutter.project_slug}}
+CONDA_ACTIVATE = source $$(conda info --base)/etc/profile.d/conda.sh ; \
+	conda activate ; conda activate $(CONDA_ENV_DIR)
 KERNEL_DIR = $(shell jupyter --data-dir)/kernels/{{cookiecutter.project_slug}}
 
 help:
@@ -26,17 +27,19 @@ teardown:
 	$(CONDA_ACTIVATE)
 	jupyter kernelspec uninstall -y {{cookiecutter.project_slug}}
 	conda deactivate
-	conda remove -n {{cookiecutter.project_slug}} --all -y
+	conda remove --prefix $(CONDA_ENV_DIR) --all -y
+	rm -r $(PREFIX)
 
 $(CONDA_ENV_DIR): $(YML)
-	conda env create --file $^ --prefix $@
+	conda env create --prefix $@ --file $^
 
 environment: $(CONDA_ENV_DIR)
 	@echo -e "conda environments are ready."
 
 $(KERNEL_DIR): $(CONDA_ENV_DIR)
 	$(CONDA_ACTIVATE)
-	python -m ipykernel install --user --name {{cookiecutter.project_slug}} --display-name {{cookiecutter.project_slug}}
+	python -m ipykernel install --user --name {{cookiecutter.project_slug}}; \
+		--display-name {{cookiecutter.project_slug}}
 	conda deactivate
 
 kernel: $(KERNEL_DIR)
