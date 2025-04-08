@@ -16,9 +16,9 @@ my_project
 │
 ├── .gitignore                 <- Specifies files and directories to ignore in version control.
 │
-├── 01_eo-discover-eodag.ipynb <- Example Jupyter notebook
+├── <PROJECT_NAME>.ipynb       <- Example Jupyter notebook
 │
-├── 01_eo-discover-eodag.yml   <- Configuration file for the associated Jupyter notebook
+├── <PROJECT_NAME>.yml         <- Configuration file for the associated Jupyter notebook
 │
 ├── Makefile                   <- Root-level Makefile for project-wide commands
 │
@@ -41,13 +41,13 @@ This README file contains instructions on how to use the makefile to share the p
 
 The .gitignore file specifies which files and directories should be ignored by Git when committing changes to the repository. This helps keep the repository clean by excluding files that are not necessary for version control, such as temporary files, build artifacts, or sensitive information.
 
-### 01_eo-discover-eodag.ipynb
+### <PROJECT_NAME>.ipynb
 
 This is an example Jupyter notebook provided as a template or starting point.
 
-### 01_eo-discover-eodag.yml
+### <PROJECT_NAME>.yml
 
-This YAML file contains configuration settings specific to the Jupyter notebook `01_eo-discover-eodag.ipynb`. Here dependencies, environment variables, or other settings required to run the notebook successfully should be defined.
+This YAML file contains configuration settings specific to the Jupyter notebook `<PROJECT_NAME>.ipynb`. Here dependencies, environment variables, or other settings required to run the notebook successfully should be defined.
 
 ### Makefile
 
@@ -79,7 +79,7 @@ The main README file provides an overview of the project, including its purpose,
    
    These names are used in the `makefile` form the `.setup` folder. This is important when sharing the notebook for easy setup.
 
-4. Now you can work on the Project. A example Jupyter notebook called `01_eo-discover-eodag.ipynb`has been created. Dont forget to push your changes to GitHub (Use the same names as in 3). 
+4. Now you can work on the Project. A example Jupyter notebook called `<PROJECT_NAME>.ipynb`has been created. Dont forget to push your changes to GitHub (Use the same names as in 3). 
 
 5. Make sure that the GitHub repository is public. When using the Makefile to get the notebooks the `main` branch is cloned by default. In the `.setup/Makefile` you can specify a different branch. Therefore you need to change
     ```
