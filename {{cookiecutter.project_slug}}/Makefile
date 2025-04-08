@@ -2,14 +2,11 @@
 SHELL = /bin/bash
 .PHONY: help clean environment kernel teardown
 
-YML = $(wildcard *.yml)
-REQ = $(basename $(notdir $(YML)))
-BASENAME = $(CURDIR)
-
-CONDA_ACTIVATE = source $$(conda info --base)/etc/profile.d/conda.sh ; conda activate ; conda activate
-PREFIX = $(BASENAME)/.conda_envs
-CONDA_ENV_DIR := $(foreach i,$(REQ),$(PREFIX)/$(i))
-KERNEL_DIR := $(foreach i,$(REQ),$(shell jupyter --data-dir)/kernels/$(i))
+YML = {{cookiecutter.project_slug}}.yml
+CONDA_ACTIVATE = source $$(conda info --base)/etc/profile.d/conda.sh ; conda activate ; conda activate {{cookiecutter.project_slug}}
+PREFIX = $(CURDIR)/.conda_envs
+CONDA_ENV_DIR := $(PREFIX)/{{cookiecutter.project_slug}}
+KERNEL_DIR = $(shell jupyter --data-dir)/kernels/{{cookiecutter.project_slug}}
 
 help:
 	@echo "Makefile for setting up environment, kernel, and pulling notebooks"
@@ -23,33 +20,24 @@ help:
 	@echo "  make help         - Display this help message"
 
 clean:
-	rm --force --recursive .ipynb_checkpoints/ **/.ipynb_checkpoints/ _book/ \
-		_freeze/ .quarto/
+	rm --force --recursive .ipynb_checkpoints/
 
 teardown:
-	$(foreach f, $(REQ), \
-		$(CONDA_ACTIVATE) $(f); \
-		jupyter kernelspec uninstall -y $(f); \
-		conda deactivate; \
-		conda remove -n $(f) --all -y ; \
-		conda deactivate; )
-	- conda config --remove envs_dirs $(PREFIX)
+	$(CONDA_ACTIVATE)
+	jupyter kernelspec uninstall -y {{cookiecutter.project_slug}}
+	conda deactivate
+	conda remove -n {{cookiecutter.project_slug}} --all -y
 
 $(CONDA_ENV_DIR): $(YML)
-	- conda config --prepend envs_dirs $(PREFIX)
-	- conda update -n base -c conda-forge conda -y
-	$(foreach f, $^, \
-		conda env create --file $(f) \
-			--prefix $(PREFIX)/$(basename $(notdir $(f))); )
+	conda env create --file $^ --prefix $@
 
 environment: $(CONDA_ENV_DIR)
 	@echo -e "conda environments are ready."
 
 $(KERNEL_DIR): $(CONDA_ENV_DIR)
-	$(foreach f, $(REQ), \
-		$(CONDA_ACTIVATE) $(f); \
-		python -m ipykernel install --user --name $(f) --display-name $(f); \
-		conda deactivate; )
+	$(CONDA_ACTIVATE)
+	python -m ipykernel install --user --name {{cookiecutter.project_slug}} --display-name {{cookiecutter.project_slug}}
+	conda deactivate
 
 kernel: $(KERNEL_DIR)
 	@echo -e "conda jupyter kernel is ready."
