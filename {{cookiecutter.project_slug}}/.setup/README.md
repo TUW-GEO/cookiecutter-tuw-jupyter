@@ -1,4 +1,4 @@
-# DataLab JupyterHub 
+# DataLab JupyterHub
 
 ## Information for TU Wien Lecturers
 
@@ -6,7 +6,7 @@ This Makefile automatizes the process of cloning your GitHub repository to the s
 
 ## Information for TU Wien Students
 
-To clone the lecturer's notebooks to your JupyterLab Home directory, do the following. 
+To clone the lecturer's notebooks to your JupyterLab Home directory, do the following.
 
 - Open a Terminal from the same level as the Makefile file.
 - Type the following into the terminal.

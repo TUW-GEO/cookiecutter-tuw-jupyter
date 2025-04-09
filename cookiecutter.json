@@ -1,5 +1,5 @@
 {
-    "github_name": "TUW-GEO",
-    "project_name": "My TUW Jupyter",
-    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-').replace('-', '-') }}"
-  }
+  "github_name": "TUW-GEO",
+  "project_name": "My TUW Jupyter",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-').replace('-', '-') }}"
+}

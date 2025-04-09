@@ -73,18 +73,21 @@ The main README file provides an overview of the project, including its purpose,
    ```
 
 3. Now fill out the requested information (default templating values are shown in square brackets `[]` and will be used if no other information is entered):
+
    - Github Name: Github account name of person or group (defaults to [TUW-GEO](https://github.com/TUW-GEO))
    - Project Name: Name of project and the accompanying GitHub repository
    - Project Slug: The same as the name but without capital letters and spaces
-   
+
    These names are used in the `makefile` form the `.setup` folder. This is important when sharing the notebook for easy setup.
 
-4. Now you can work on the Project. A example Jupyter notebook called `<PROJECT_NAME>.ipynb`has been created. Dont forget to push your changes to GitHub (Use the same names as in 3). 
+4. Now you can work on the Project. A example Jupyter notebook called `<PROJECT_NAME>.ipynb`has been created. Dont forget to push your changes to GitHub (Use the same names as in 3).
 
 5. Make sure that the GitHub repository is public. When using the Makefile to get the notebooks the `main` branch is cloned by default. In the `.setup/Makefile` you can specify a different branch. Therefore you need to change
-    ```
-    GIT_BRANCH = main
-    ````
-    in line 7 to the desired branch.
+
+   ```
+   GIT_BRANCH = main
+   ```
+
+   in line 7 to the desired branch.
 
 6. To share your Project on the TU Wien JupyterHub provide the `Makefile` together with the `README` file from the `.setup`folder.

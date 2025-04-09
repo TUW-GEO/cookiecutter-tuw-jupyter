@@ -1,4 +1,4 @@
-name: {{cookiecutter.project_slug}}
+name: { { cookiecutter.project_slug } }
 channels:
   - conda-forge
 dependencies:
@@ -12,4 +12,4 @@ dependencies:
   - zarr
   - netcdf4
   - pip:
-    - eodag
+      - eodag

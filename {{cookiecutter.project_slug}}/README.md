@@ -1,10 +1,4 @@
-
-
-
-
-TODO: Add you lecture description. 
-
-
+TODO: Add you lecture description.
 
 # Generate Jupyter Conda environment and Jupyter Kernel from `yml`
 
@@ -34,6 +28,7 @@ make teardown
 ```
 
 # Developing
+
 Commit notebooks without output for smaller file sizes and interactive teaching. For convenience use `nbstripout` to clean notebooks, like so:
 
 ```
