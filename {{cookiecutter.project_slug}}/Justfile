@@ -1,0 +1,58 @@
+# Default command lists all available recipes
+_default:
+	@just --list
+
+# clean all ipynb checkpoints
+clean:
+	rm --force --recursive .ipynb_checkpoints/
+
+# remove venv and the jupyter kernel
+teardown:
+	uv run jupyter kernelspec uninstall -y {{cookiecutter.project_slug}}
+	rm -rf .venv/
+
+# install dependencies in local venv
+venv:
+	uv sync
+
+# lint python code using ruff
+[private]
+lint:
+	uvx ruff check . --fix
+
+# format python code using ruff
+[private]
+format:
+	uvx ruff format .
+
+# run the type checker ty
+[private]
+types:
+	uvx ty check
+
+# lint and format python code using ruff and run the type checker
+check: lint format types
+
+# setup the pre-commit hooks
+hooks:
+	uvx pre-commit install
+
+# create a jupyter kernel to run notebooks
+kernel:
+	uv run ipython kernel install --user --env VIRTUAL_ENV $(pwd)/.venv --name={{cookiecutter.project_slug}}
+
+# list all jupyter kernels
+kernel-list:
+	uv run jupyter kernelspec list
+{% raw %}
+# list all jupyter kernels
+kernel-remove name:
+	uv run jupyter kernelspec remove {{name}}
+{% endraw %}
+
+# initialize a git repo and add all files
+init:
+	git init
+	git add .
+	git commit -m "initial commit"
+	@echo "Git has been initialized"
